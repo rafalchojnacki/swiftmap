@@ -1,0 +1,91 @@
+{
+  "name": "swiftmap",
+  "displayName": "SwiftMap",
+  "description": "Minimal mind map editor for Visual Studio Code.",
+  "version": "0.0.1",
+  "icon": "resources/icon.png",
+  "publisher": "local",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafalchojnacki/swiftmap.git"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:swiftmap",
+    "onCustomEditor:swiftmap.editor"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "swiftmap",
+        "aliases": [
+          "SwiftMap",
+          "swiftmap"
+        ],
+        "extensions": [
+          ".swiftmap"
+        ]
+      }
+    ],
+    "customEditors": [
+      {
+        "viewType": "swiftmap.editor",
+        "displayName": "SwiftMap Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.swiftmap"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "commands": [
+      {
+        "command": "swiftmap.newDocument",
+        "title": "SwiftMap: New Mind Map"
+      },
+      {
+        "command": "swiftmap.openSource",
+        "title": "SwiftMap: Open Source",
+        "shortTitle": "Open Source",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "swiftmap.openVisualEditor",
+        "title": "SwiftMap: Open Visual Editor",
+        "shortTitle": "Open Visual Editor",
+        "icon": "$(open-preview)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "swiftmap.openSource",
+          "when": "activeCustomEditorId == swiftmap.editor",
+          "group": "navigation"
+        },
+        {
+          "command": "swiftmap.openVisualEditor",
+          "when": "editorLangId == swiftmap && activeCustomEditorId != swiftmap.editor",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.5.4"
+  }
+}

@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build output
+out/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Test and coverage outputs
+.nyc_output/
+coverage/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# VS Code specific
+*.vsix
+*.tsbuildinfo
+
+# Ignore the typings pulled in during install (if applicable)
+vscode*.d.ts
+
+# Local VS Code settings (Keep setup files, ignore local state)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Codex & AI Agent ignores
+.codexignore
+.agentignore
+*.local.md
